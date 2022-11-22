@@ -2,6 +2,7 @@
 cégek rating rendszer:
   menü pontjai:
     -új vélemény hozzáadása
+    -cégek kilistázása
     -új cég hozzáadása
     -vélemény törlése
     -kilépés
