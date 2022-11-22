@@ -5,7 +5,7 @@ valasztas=''
 while valasztas!='0':
     valasztas=menu()
     if valasztas=='1':
-        pass
+        elsomenuponty()
     elif valasztas=='2':
         pass
         input()
