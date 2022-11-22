@@ -10,6 +10,7 @@ def menu():
     print('2 - új rating')
     print('3 - új cég')
     print('4 - rating törlése')
+    print('5 - cég értékelésének megtekintése')
     return input('Választás: ')
 
 
