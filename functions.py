@@ -13,6 +13,10 @@ def menu():
     print('5 - cég értékelésének megtekintése')
     return input('Választás: ')
 
+def cuccmentesefajlvegere(nev,rating):
+    file=open(fajlnev,'a',encoding='utf-8')
+    file.write(f'\n{nev};{rating}')
+
 
 def fajlbetoltes():
     file=open(fajlnev, 'r', encoding='utf-8')
@@ -28,3 +32,12 @@ def elsomenuponty():
     for i in nevek:
         print(f'\t{i}')
     input()
+
+def masodikmenuponty():
+    for i in nevek:
+        print(f'{i}')
+    bekertrating=int(input('melyik céghez szeretne értékelést írni?:'))
+    ratingek.append(bekertrating)
+    cuccmentesefajlvegere()
+    input()
+     
