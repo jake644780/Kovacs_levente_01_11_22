@@ -2,6 +2,17 @@ from os import system
 from data import *
 fajlnev='cégek.txt'
 
+def menu():
+    system('cls')
+    print('------MENÜ------')
+    print('0 - kilépés')
+    print('1 - cégek kilistázása')
+    print('2 - új rating')
+    print('3 - új cég')
+    print('4 - rating törlése')
+    return input('Választás: ')
+
+
 def fajlbetoltes():
     file=open(fajlnev, 'r', encoding='utf-8')
     for row in file:
