@@ -9,8 +9,7 @@ def menu():
     print('1 - cégek kilistázása')
     print('2 - új rating')
     print('3 - új cég')
-    print('4 - rating törlése')
-    print('5 - cég értékelésének megtekintése')
+    print('4 - cég értékelésének megtekintése')
     return input('Választás: ')
 
 def cuccmentesefajlvegere(nev,rating):
@@ -43,12 +42,13 @@ def elsomenuponty():
 def masodikmenuponty():
     for i in range(len(nevek)):
         print(f'{i+1}. {nevek[i]}')
-    choice=int(input('melyik céghez szeretne értékelést írni?:'))
-    #    for i in range(len(ratingek)):
-    bekertrating=input('mi legyen az értékelés?:')
-    ratingek[choice-1]=ratingek[choice-1]+','+bekertrating
-
-    
+    bekertrating=0
+    choice=0
+    while choice<1 or choice>len(nevek): 
+        choice=int(input('melyik céghez szeretne értékelést írni?:'))
+    while bekertrating<1 or bekertrating>5 and bekertrating:    
+        bekertrating=int(input('mi legyen az értékelés?:'))
+    ratingek[bekertrating-1]=ratingek[bekertrating-1]+','+bekertrating
     cuccmentese()
     input('sikeresen elmentettük...')
      

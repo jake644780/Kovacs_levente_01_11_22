@@ -12,5 +12,3 @@ while valasztas!='0':
         pass
     elif valasztas=='4':
         pass
-    elif valasztas=='4':
-        pass
