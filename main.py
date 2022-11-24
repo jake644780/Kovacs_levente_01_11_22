@@ -7,8 +7,7 @@ while valasztas!='0':
     if valasztas=='1':
         elsomenuponty()
     elif valasztas=='2':
-        pass
-        input()
+        masodikmenuponty()
     elif valasztas=='3':
         pass
     elif valasztas=='4':

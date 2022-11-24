@@ -17,13 +17,20 @@ def cuccmentesefajlvegere(nev,rating):
     file=open(fajlnev,'a',encoding='utf-8')
     file.write(f'\n{nev};{rating}')
 
+def cuccmentese():
+    file=open(fajlnev,'w',encoding='utf-8')
+    for i in range(len(nevek)):
+
+        file.write(f'{nevek[i]};{ratingek[i]}\n')
+    file.close()
+
 
 def fajlbetoltes():
     file=open(fajlnev, 'r', encoding='utf-8')
     for row in file:
         darabolt=row.strip().split(';')
         nevek.append(darabolt[0])
-        ratingek.append(float(darabolt[1]))
+        ratingek.append(darabolt[1])
     file.close()
 
 def elsomenuponty():
@@ -34,10 +41,14 @@ def elsomenuponty():
     input()
 
 def masodikmenuponty():
-    for i in nevek:
-        print(f'{i}')
-    bekertrating=int(input('melyik céghez szeretne értékelést írni?:'))
-    ratingek.append(bekertrating)
-    cuccmentesefajlvegere()
-    input()
+    for i in range(len(nevek)):
+        print(f'{i+1}. {nevek[i]}')
+    choice=int(input('melyik céghez szeretne értékelést írni?:'))
+    #    for i in range(len(ratingek)):
+    bekertrating=input('mi legyen az értékelés?:')
+    ratingek[choice-1]=ratingek[choice-1]+','+bekertrating
+
+    
+    cuccmentese()
+    input('sikeresen elmentettük...')
      
