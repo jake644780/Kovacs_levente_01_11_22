@@ -1,5 +1,11 @@
 from functions import *
 from os import system
+#after succesful input, doesn't clear previous menupoints and stuff 
+#4. menupoint does not work, have no idea what to do with it
+#idea is:
+#choose cég and have it's row's [1] part converted from str into int and then just szum/len
+
+commentbetoltes()
 fajlbetoltes()
 valasztas=''
 while valasztas!='0':
@@ -14,4 +20,8 @@ while valasztas!='0':
         system('cls')
         harmadikmenuponty()
     elif valasztas=='4':
-        pass
+        system('cls')
+        negyedikmenuponty()
+    elif valasztas=='5':
+        system('cls')
+        otodikmenuponty()
