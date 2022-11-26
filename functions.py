@@ -12,14 +12,18 @@ def menu():
     print('4 - cég értékelésének megtekintése')
     return input('Választás: ')
 
-def cuccmentesefajlvegere(nev,rating):
+def mindenmentese(nev,rating):
     file=open(fajlnev,'a',encoding='utf-8')
     file.write(f'\n{nev};{rating}')
+    file.close()
+def cegmentese(nev):
+    file=open(fajlnev,'a',encoding='utf-8')
+    file.write(f'\n{nev};')
+    file.close()
 
-def cuccmentese():
-    file=open(fajlnev,'w',encoding='utf-8')
+def ratingmentese(rating):
+    file=open(fajlnev,'a',encoding='utf-8')
     for i in range(len(nevek)):
-
         file.write(f'{nevek[i]};{ratingek[i]}\n')
     file.close()
 
@@ -33,7 +37,6 @@ def fajlbetoltes():
     file.close()
 
 def elsomenuponty():
-    system('cls')
     print('------CÉGEK------')
     for i in nevek:
         print(f'\t{i}')
@@ -49,6 +52,13 @@ def masodikmenuponty():
     while bekertrating<1 or bekertrating>5 and bekertrating:    
         bekertrating=int(input('mi legyen az értékelés?:'))
     ratingek[bekertrating-1]=ratingek[bekertrating-1]+','+bekertrating
-    cuccmentese()
+    ratingmentese()
     input('sikeresen elmentettük...')
-     
+
+def harmadikmenuponty():
+    print('-------ÚJ CÉG------')
+    bekertceg=input('A cég neve: ')
+    nevek.append(bekertceg)
+    cegmentese(bekertceg)
+    input('Sikeres felvétel.')  
+    file.close()
