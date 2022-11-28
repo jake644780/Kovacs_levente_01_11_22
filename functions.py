@@ -2,7 +2,7 @@ from os import system
 from data import *
 fajlnev='ratingek.txt'
 commentfajl='commentek.txt'
-#betoltesek
+#betoltesek____________________________________________________________________________________________________________________________-
 def menu():
     system('cls')
     print('------MENÜ------')
@@ -49,7 +49,7 @@ def fajlbetoltes():
         nevekcommenthez.append(darabolt[0])
         commentek.append(darabolt[1])
     file.close()
-#mentesek
+#mentesek____________________________________________________________________________________________________________________________
 def cegmentese(nev):
     file=open(fajlnev,'a',encoding='utf-8')
     file.write(f'\n{nev};')
@@ -66,7 +66,7 @@ def commentmentese():
     for i in range(len(nevekratinghez)):
         file.write(f'{nevekratinghez[i]};{commentek[i]}\n')
     file.close()
-#menupontok
+#menupontok____________________________________________________________________________________________________________________________
 def elsomenuponty():
     print('------CÉGEK------')
     for i in nevekratinghez:
