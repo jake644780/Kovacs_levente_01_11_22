@@ -14,10 +14,6 @@ def menu():
     print('6 - visszajelzések megtekintése')
     return input('Választás: ')
 
-def mindenmentese(nev,rating):
-    file=open(fajlnev,'a',encoding='utf-8')
-    file.write(f'\n{nev};{rating}')
-    file.close()
 def cegmentese(nev):
     file=open(fajlnev,'a',encoding='utf-8')
     file.write(f'\n{nev};')
@@ -26,23 +22,22 @@ def cegmentese(nev):
     file.close()
 def ratingmentese(rating):
     file=open(fajlnev,'a',encoding='utf-8')
-    for i in range(len(nevek)):
-        file.write(f'{nevek[i]};{ratingek[i]}\n')
+    for i in range(len(nevekratinghez)):
+        file.write(f'{nevekratinghez[i]};{ratingek[i]}\n')
     file.close()
-def commentmentese(rating):
+def commentmentese():
     file=open(commentfajl,'a',encoding='utf-8')
-    for i in range(len(nevek)):
-        file.write(f'{nevek[i]};{commentek[i]}\n')
+    for i in range(len(nevekratinghez)):
+        file.write(f'{nevekratinghez[i]};{commentek[i]}\n')
     file.close()
 
 def fajlbetoltes():
     file=open(fajlnev, 'r', encoding='utf-8')
     for i in file:
         darabolt=i.strip().split(';')
-        nevek.append(darabolt[0])
+        nevekratinghez.append(darabolt[0])
         ratingek.append(darabolt[1])
     file.close()
-def commentbetoltes():
     file=open(commentfajl, 'r', encoding='utf-8')
     for i in file:
         darabolt=i.strip().split(';')
@@ -52,33 +47,33 @@ def commentbetoltes():
 
 def elsomenuponty():
     print('------CÉGEK------')
-    for i in nevek:
+    for i in nevekratinghez:
         print(f'\t{i}')
     input()
 def masodikmenuponty():
-    for i in range(len(nevek)):
-        print(f'{i+1}. {nevek[i]}')
+    for i in range(len(nevekratinghez)):
+        print(f'{i+1}. {nevekratinghez[i]}')
     bekertrating=0
     choice=0
-    while choice<1 or choice>len(nevek): 
+    while choice<1 or choice>len(nevekratinghez): 
         choice=int(input('melyik céghez szeretne értékelést írni?:'))
     while bekertrating<1 or bekertrating>5 and bekertrating:    
-        bekertrating=str(input('mi legyen az értékelés?:'))
+        bekertrating=int(input('mi legyen az értékelés?:'))
     ratingek[bekertrating-1]=ratingek[bekertrating-1]+','+bekertrating
     ratingmentese()
     input('sikeresen elmentettük...')
 def harmadikmenuponty():
     print('-------ÚJ CÉG------')
     bekertceg=input('A cég neve: ')
-    nevek.append(bekertceg)
+    nevekratinghez.append(bekertceg)
     cegmentese(bekertceg)
     input('Sikeres felvétel.')  
 def negyedikmenuponty():#!!!
     pass
 def otodikmenuponty():#!!!
     print('------CÉGEK------')
-    for i in range(len(nevek)):
-        print(f'{i+1}. {nevek[i]}')
+    for i in range(len(nevekratinghez)):
+        print(f'{i+1}. {nevekratinghez[i]}')
     bekertcegszama= int(input('cég száma:'))
     bekertszoveg= input('szöveg:')
     nemI=0
@@ -86,7 +81,7 @@ def otodikmenuponty():#!!!
         for i in file:
             if nemI == bekertcegszama:
                 with open(commentfajl, 'a', encoding='UTF-8') as file:
-                    file.write(nevek[nemI])
+                    file.write(nevekratinghez[nemI])
                     file.write(bekertszoveg)
             nemI+=1
     input('sikeresen elmentettük...')       
