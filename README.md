@@ -1,12 +1,11 @@
 # Kovacs_levente_01_11_22
 cégek rating rendszer:
-  cégeknek visszajelzéseinek összesítése, új eredmény, cég hozzáadása
-  
-  
-  
+egy olyan menu rendszer, ahol 2 féle értékelést lehet hagyni a cégekhez. emellett új céget is lehet létrehozni
   menü pontjai:
-    -új vélemény hozzáadása
     -cégek kilistázása
+    -numerikus értékelés hozzáadása(1-5)
     -új cég hozzáadása
-    -vélemény törlése
+    -numerikus értékelés összesítésének megtekintése
+    -vélemény írása
+    -vélemények megtekintése
     -kilépés
