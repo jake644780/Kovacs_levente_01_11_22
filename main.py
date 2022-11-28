@@ -1,5 +1,4 @@
 from functions import *
-from os import system
 #after succesful input, doesn't clear previous menupoints and stuff 
 #2. menupoint has trouble with int and str
 #4. menupoint does not work, have no idea what to do with it    idea is:

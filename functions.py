@@ -91,7 +91,7 @@ def harmadikmenuponty():
     cegmentese(bekertceg)
     input('Sikeres felvétel.')  
 def negyedikmenuponty():#!!!
-    pass
+    pass   
 def otodikmenuponty():#!!!
     print('------CÉGEK------')
     for i in range(len(nevekratinghez)):
@@ -106,7 +106,7 @@ def otodikmenuponty():#!!!
                     file.write(nevekratinghez[nemI])
                     file.write(bekertszoveg)
             nemI+=1
-    input('sikeresen elmentettük...')       
+    input('sikeresen elmentettük...')    
 def hatodikmenuponty():
     i=0
     print('------CÉGEK VISSZAJELZÉSEI------')
