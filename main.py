@@ -5,7 +5,7 @@ from os import system
 #idea is:
 #choose cég and have it's row's [1] part converted from str into int and then just szum/len
 #5. menupoint problem: cannot add comment to txt due to something
-commentbetoltes()
+#commentbetoltes()
 fajlbetoltes()
 valasztas=''
 while valasztas!='0':
@@ -25,3 +25,6 @@ while valasztas!='0':
     elif valasztas=='5':
         system('cls')
         otodikmenuponty()
+    elif valasztas=='6':
+        system('cls')
+        hatodikmenuponty()

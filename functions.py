@@ -11,6 +11,7 @@ def menu():
     print('3 - új cég')
     print('4 - cég értékelésének megtekintése')
     print('5 - visszajelzés írása')
+    print('6 - visszajelzések megtekintése')
     return input('Választás: ')
 
 def mindenmentese(nev,rating):
@@ -40,14 +41,15 @@ def fajlbetoltes():
         darabolt=i.strip().split(';')
         nevek.append(darabolt[0])
         ratingek.append(darabolt[1])
+        commentek.append(darabolt[2])
     file.close()
-def commentbetoltes():
-    file=open(commentfajl, 'r', encoding='utf-8')
-    for i in file:
-        darabolt=i.strip().split(';')
-        nevekcommenthez.append(darabolt[1])
-        commentek.append(darabolt[1])
-    file.close()
+#def commentbetoltes():
+#    file=open(commentfajl, 'r', encoding='utf-8')
+#   for i in file:
+#      darabolt=i.strip().split(';')
+#     nevekcommenthez.append(darabolt[1])
+#    commentek.append(darabolt[1])
+#file.close()
 
 def elsomenuponty():
     print('------CÉGEK------')
@@ -62,7 +64,7 @@ def masodikmenuponty():
     while choice<1 or choice>len(nevek): 
         choice=int(input('melyik céghez szeretne értékelést írni?:'))
     while bekertrating<1 or bekertrating>5 and bekertrating:    
-        bekertrating=int(input('mi legyen az értékelés?:'))
+        bekertrating=(input('mi legyen az értékelés?:'))
     ratingek[bekertrating-1]=ratingek[bekertrating-1]+','+bekertrating
     ratingmentese()
     input('sikeresen elmentettük...')
@@ -72,9 +74,9 @@ def harmadikmenuponty():
     nevek.append(bekertceg)
     cegmentese(bekertceg)
     input('Sikeres felvétel.')  
-def negyedikmenuponty():
+def negyedikmenuponty():#!!!
     pass
-def otodikmenuponty():
+def otodikmenuponty():#!!!
     for i in range(len(nevek)):
         print(f'{i+1}. {nevek[i]}')
     bekertcomment=''
@@ -85,4 +87,10 @@ def otodikmenuponty():
     commentek[bekertcomment-1]=commentek[bekertcomment-1]+',\t'+bekertcomment
     commentmentese()
     input('sikeresen elmentettük...')
-  
+def hatodikmenuponty():
+    i=0
+    print('------CÉGEK VISSZAJELZÉSEI------')
+    while i != len(nevek):
+        print(f'\t{nevek[i]}\t{commentek[i]}')
+        i += 1
+    input()

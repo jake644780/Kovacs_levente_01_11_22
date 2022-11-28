@@ -1,4 +1,4 @@
 nevek=[]
 ratingek=[]
 commentek=[]
-nevekcommenthez=[]
+#nevekcommenthez=[]
