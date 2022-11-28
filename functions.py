@@ -2,6 +2,7 @@ from os import system
 from data import *
 fajlnev='ratingek.txt'
 commentfajl='commentek.txt'
+#betoltesek
 def menu():
     system('cls')
     print('------MENÜ------')
@@ -13,7 +14,21 @@ def menu():
     print('5 - visszajelzés írása')
     print('6 - visszajelzések megtekintése')
     return input('Választás: ')
+def fajlbetoltes():
 
+    file=open(fajlnev, 'r', encoding='utf-8')
+    for i in file:
+        darabolt=i.strip().split(';')
+        nevekratinghez.append(darabolt[0])
+        ratingek.append(darabolt[1])
+    file.close()
+    file=open(commentfajl, 'r', encoding='utf-8')
+    for i in file:
+        darabolt=i.strip().split(';')
+        nevekcommenthez.append(darabolt[0])
+        commentek.append(darabolt[1])
+    file.close()
+#mentesek
 def cegmentese(nev):
     file=open(fajlnev,'a',encoding='utf-8')
     file.write(f'\n{nev};')
@@ -30,27 +45,13 @@ def commentmentese():
     for i in range(len(nevekratinghez)):
         file.write(f'{nevekratinghez[i]};{commentek[i]}\n')
     file.close()
-
-def fajlbetoltes():
-    file=open(fajlnev, 'r', encoding='utf-8')
-    for i in file:
-        darabolt=i.strip().split(';')
-        nevekratinghez.append(darabolt[0])
-        ratingek.append(darabolt[1])
-    file.close()
-    file=open(commentfajl, 'r', encoding='utf-8')
-    for i in file:
-        darabolt=i.strip().split(';')
-        nevekcommenthez.append(darabolt[0])
-        commentek.append(darabolt[1])
-    file.close()
-
+#menupontok
 def elsomenuponty():
     print('------CÉGEK------')
     for i in nevekratinghez:
         print(f'\t{i}')
     input()
-def masodikmenuponty():
+def masodikmenuponty():#!!!
     for i in range(len(nevekratinghez)):
         print(f'{i+1}. {nevekratinghez[i]}')
     bekertrating=0
