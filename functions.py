@@ -14,8 +14,29 @@ def menu():
     print('5 - visszajelzés írása')
     print('6 - visszajelzések megtekintése')
     return input('Választás: ')
+def menubetotes():
+    valasztas=''
+    while valasztas!='0':
+        valasztas=menu()
+        if valasztas=='1':
+            system('cls')
+            elsomenuponty()
+        elif valasztas=='2':
+            system('cls')
+            masodikmenuponty()
+        elif valasztas=='3':
+            system('cls')
+            harmadikmenuponty()
+        elif valasztas=='4':
+            system('cls')
+            negyedikmenuponty()
+        elif valasztas=='5':
+            system('cls')
+            otodikmenuponty()
+        elif valasztas=='6':
+            system('cls')
+            hatodikmenuponty()
 def fajlbetoltes():
-
     file=open(fajlnev, 'r', encoding='utf-8')
     for i in file:
         darabolt=i.strip().split(';')
@@ -89,7 +110,7 @@ def otodikmenuponty():#!!!
 def hatodikmenuponty():
     i=0
     print('------CÉGEK VISSZAJELZÉSEI------')
-    while i != len(nevekcommenthez):
+    while i!=len(nevekcommenthez):
         print(f'\t{nevekcommenthez[i]}\t{commentek[i]}')
-        i += 1
+        i+=1
     input()
