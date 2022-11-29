@@ -55,12 +55,12 @@ def cegmentese(nev):
     file=open(fajlnev,'a',encoding='utf-8')
     file.write(f'\n{nev};')
     file=open(commentfajl,'a',encoding='utf-8')
-    file.write(f'\n{nev};')
+    file.write(f'{nev};')
     file.close()
 def ratingmentese():
     file=open(fajlnev,'w',encoding='utf-8')
     for i in range(len(nevekratinghez)):
-        file.write(f'{nevekratinghez[i]};{ratingek[i]}\n')
+        file.write(f'\n{nevekratinghez[i]};{ratingek[i]}')
     file.close()
 def commentmentese():
     file=open(commentfajl,'a',encoding='utf-8')
@@ -71,16 +71,17 @@ def commentmentese():
 def elsomenuponty():
     print('------CÉGEK------')
     for i in nevekratinghez:
-        print(f'\t{i}')
+        print(f'{i}')
     input()
 def masodikmenuponty():
+    print('------CÉGEK------')
     for i in range(len(nevekratinghez)):
         print(f'{i+1}. {nevekratinghez[i]}')
     bekertrating=0
     choice=0
     while choice<1 or choice>len(nevekratinghez): 
         choice=int(input('melyik céghez szeretne értékelést írni?:'))
-    while bekertrating<1 or bekertrating>5 and bekertrating :    
+    while bekertrating<1 or bekertrating>5:    
         bekertrating=int(input('mi legyen az értékelés?:'))
     ratingek[choice-1]=ratingek[choice-1]+','+str(bekertrating)
     ratingmentese()
