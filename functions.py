@@ -1,5 +1,6 @@
 from os import system
 from data import *
+import math
 fajlnev='ratingek.txt'
 commentfajl='commentek.txt'
 #betoltesek____________________________________________________________________________________________________________________________
@@ -91,7 +92,13 @@ def harmadikmenuponty():
     cegmentese(bekertceg)
     input('Sikeres felvétel.')  
 def negyedikmenuponty():
-    pass   
+    for i in range(len(nevekratinghez)):
+        osszeg=0
+        st=ratingek[i].split(',')
+        for j in range(len(st)):
+            osszeg+=int(st[j])
+        print(f'{nevekratinghez[i]}\t{(osszeg/len(st)): .2f}')
+    input()
 def otodikmenuponty():
     print('------CÉGEK------')
     for i in range(len(nevekratinghez)):
@@ -104,7 +111,7 @@ def otodikmenuponty():
     for i in range(len(nevekratinghez)):
         file.write(f'{nevekratinghez[i]};{commentek[i]}\n')
     file.close()
-    input('sikeresen elmentettük...')    
+    input('sikeresen elmentettük...')  
 def hatodikmenuponty():
     i=0
     print('------CÉGEK VISSZAJELZÉSEI------')
