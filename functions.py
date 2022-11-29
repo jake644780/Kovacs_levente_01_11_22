@@ -2,7 +2,7 @@ from os import system
 from data import *
 fajlnev='ratingek.txt'
 commentfajl='commentek.txt'
-#betoltesek____________________________________________________________________________________________________________________________-
+#betoltesek____________________________________________________________________________________________________________________________
 def menu():
     system('cls')
     print('------MENÜ------')
@@ -41,15 +41,18 @@ def fajlbetoltes():
     for i in file:
         darabolt=i.strip().split(';')
         nevekratinghez.append(darabolt[0])
+        nevekcommenthez.append(darabolt[0])
         ratingek.append(darabolt[1])
     file.close()
+   
     file=open(commentfajl, 'r', encoding='utf-8')
     for i in file:
         darabolt=i.strip().split(';')
-        nevekcommenthez.append(darabolt[0])
         commentek.append(darabolt[1])
     file.close()
-#mentesek____________________________________________________________________________________________________________________________
+   
+    input()
+#mentesek______________________________________________________________________________________________________________________________
 def cegmentese(nev):
     file=open(fajlnev,'a',encoding='utf-8')
     file.write(f'\n{nev};')
@@ -98,14 +101,20 @@ def otodikmenuponty():#!!!
         print(f'{i+1}. {nevekratinghez[i]}')
     bekertcegszama= int(input('cég száma:'))
     bekertszoveg= input('szöveg:')
-    nemI=0
-    with open(fajlnev, 'r',encoding='UTF-8') as file:
-        for i in file:
-            if nemI == bekertcegszama:
-                with open(commentfajl, 'a', encoding='UTF-8') as file:
-                    file.write(nevekratinghez[nemI])
-                    file.write(bekertszoveg)
-            nemI+=1
+    
+    #nemI=0
+    #with open(fajlnev, 'r',encoding='UTF-8') as file:
+    #    for i in file:
+    #        if nemI == bekertcegszama:
+                #with open(commentfajl, 'w', encoding='UTF-8') as file:
+    commentek[bekertcegszama-1]=commentek[bekertcegszama-1]+'\t'+bekertszoveg+'\n'
+                    #file.write(nevekratinghez[nemI])
+                    #file.write(bekertszoveg)
+    #        nemI+=1
+    file=open(commentfajl,'w',encoding='UTF-8')
+    for i in range(len(nevekratinghez)):
+        file.write(f'{nevekratinghez[i]};{commentek[i]}')
+    file.close()
     input('sikeresen elmentettük...')    
 def hatodikmenuponty():
     i=0
