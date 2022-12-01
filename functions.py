@@ -55,12 +55,12 @@ def cegmentese(nev):
     file=open(fajlnev,'a',encoding='utf-8')
     file.write(f'\n{nev};')
     file=open(commentfajl,'a',encoding='utf-8')
-    file.write(f'{nev};')
+    file.write(f'\n{nev};')
     file.close()
 def ratingmentese():
     file=open(fajlnev,'w',encoding='utf-8')
     for i in range(len(nevekratinghez)):
-        file.write(f'\n{nevekratinghez[i]};{ratingek[i]}')
+        file.write(f'{nevekratinghez[i]};{ratingek[i]}\n')
     file.close()
 def commentmentese():
     file=open(commentfajl,'a',encoding='utf-8')
